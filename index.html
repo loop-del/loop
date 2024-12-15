@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Game by Arjun</title>
+    <style>
+        /* General body styles */
+        body {
+            background-color: #000; /* Black background */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #fff; /* White text */
+            overflow-y: auto; /* Ensure the page is scrollable */
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #4caf50; /* Green background */
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            width: 80%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+            background-color: #0a4941; /* Green background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 2em;
+            margin-top: 1px; /* Adds some space from the top */
+        }
+
+        .logo img {
+            border-radius: 50%;
+            border: 1px solid rgb(204, 0, 0);
+        }
+
+        main {
+            background-color: #333; /* Dark gray background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #555; /* Light gray for footer text */
+        }
+
+        h1, h2 {
+            color: #fff; /* White text for headings */
+        }
+
+        .video-container, .hint, .game-area {
+            margin: 20px 0;
+        }
+
+        .controls a {
+            text-decoration: none;
+            background-color: #4caf50; /* Green button background */
+            color: #000; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .controls a:hover {
+            background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .hint p {
+            background-color: #000; /* Black background for hint text */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .game-area {
+            background-color: #083d3b; /* Darker gray background for game area */
+            padding: 2px;
+            border-radius: 5px;
+        }
+
+        .color-background {
+            background-color: #000000; 
+            display: inline-block;
+        }
+        .color1-background {
+            background-color: #ffffff; 
+            display: inline-block;
+        }
+
+        .word-color {
+            background-color: #237a36;
+            display: inline-block; 
+        }
+        .word1-color {
+            background-color: #1b8a40;
+            display: inline-block; 
+            font-size: 1.5em; 
+            display: inline-block;
+            
+        }
+
+        .large-size {
+            font-size: 1.5em;
+            display: inline-block;
+        }
+
+        .large1-size {
+            font-size: 2em;
+            display: inline-block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+
+        .my-logo {
+            border-radius: 25%;
+            border: 5px solid rgb(255, 0, 0);
+            justify-content: right;
+            align-items: right;
+        }
+        .first {
+            color: rgb(0, 0, 0);
+
+        }
+        .second{
+            color: rgb(131, 15, 15);
+
+        }
+        .third{
+            color: rgb(61, 5, 5);
+
+        }
+       /* first color*/.fc{
+
+        background-color: #11ff09; 
+        display: inline-block;
+        font-size: 1.5em;
+        display: inline-block;
+        border-radius: 25%;
+        border: 5px solid rgba(26, 250, 239, 0.781);
+        justify-content: right;
+        align-items: right;
+        }
+       /* second color*/ .sc{
+        background-color: #068325; 
+        display: inline-block;
+        font-size: 2em;
+        display: inline-block;
+        border-radius: 25%;
+        border: 5px solid rgba(0, 255, 200, 0.705);
+        justify-content: right;
+        align-items: right;
+
+        }
+       /* third color*/ .tc{
+        background-color: #013b18; 
+        display: inline-block;
+        font-size: 2.5em;
+        display: inline-block;
+        border-radius: 25%;
+        border: 5px solid rgba(0, 225, 255, 0.582);
+        justify-content: right;
+        align-items: right;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>CREATED BY ARJUN</span>
+            <img width="50" height="50" src="file:///C:/Users/biswo/Desktop/PYTHON/python%20project/html/loop.png" alt="Creator's Logo">
+        </div>
+    </header>
+    <main>
+        <h1>Welcome to Loop Game</h1>
+        <div class="video-container">
+            <!-- Add video or content here -->
+        </div>
+        <div class="hint">
+            <p>[About the game]</p>
+        </div>
+
+        <div class="first">
+         
+            <p><span class="fc">
+                {The first game (Start 1)} </span> </span></p>
+               <p> <span class="word1-color">
+                (this is the easiest game among all it is very easy to complete i think you can complete this easily )
+                <br></p>
+
+        <div class="second">
+            <p><span class="sc">
+                {The second game (Start 2)}</span><br>
+                <p> <span class="word1-color">
+                 (this is medium type question containing some maths and gk type quiz this may be little hard to complete.)<br></p>
+            <br></div></span>
+
+        <div class="third">
+            <p><span class="tc">
+                {The third game (Start 3)}</span><br>
+                <p> <span class="word1-color">
+                 (this is the hardest game among all this contain some maths problem and some gk question this may be hard to complete but you will, I believe in you)<br></p>
+            <br></span></div>
+
+        
+        <div class="controls">
+            <a href="https://easy0one.streamlit.app/" target="_blank">Start 1</a>
+
+            <a href="https://arjun8maths.streamlit.app/" target="_blank">Start 2</a>
+
+            <a href="https://gqnf3a2ht6mwu58gafqu4a.streamlit.app/" target="_blank">Start 3</a>
+
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Arjun. All rights reserved.</p>
+
+        <div class="my-logo">
+            <a href="https://www.facebook.com/profile.php?id=61561994313507" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHIMSksU1j6BnAH8Sschgbc5j5go3eDLHTgA&s" alt="my logo">
+            </a>
+        </div>
+            
+        <div class="social-links">
+            you can contact to me in this platform :)
+
+            <a href="https://www.facebook.com/profile.php?id=61561994313507" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+            </a>
+            <a href="https://www.youtube.com/@bikrampurivlog00" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo">
+            </a>
+            <a href="https://discord.com/channels/@me" target="_blank">
+                <img src="https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg" alt="Discord Logo">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
